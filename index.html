@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KX76XF8R');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teoría de la información</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="La medida de Shannon y lo que permite: entropía, información mutua, compresión con Huffman, codificación aritmética y LZ, compresión con pérdida, capacidad de canal y códigos correctores de Hamming a LDPC, con un compresor que se construye en el curso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX76XF8R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="wrap" data-page="index">
+<header class="topbar"><a class="brand" href="index.html">Teoría de la <b>información</b></a><span class="eyebrow">Curso visual e interactivo · Computación</span><a class="al-sitio" href="https://aaramirez.github.io/">← Todos los cursos</a></header>
+<div class="layout">
+<nav class="toc" id="toc" aria-label="Ruta de aprendizaje"></nav>
+<main>
+
+<header class="hero">
+  <span class="eyebrow">Curso visual e interactivo · Computación</span>
+  <h1>Cuánto se puede comprimir un archivo, y por qué hay un límite que nadie puede pasar</h1>
+  <p class="lede">En 1948, Claude Shannon le puso número a la información y con ese número fijó dos límites: cuánto se puede comprimir un mensaje y cuánto se puede enviar por un canal con ruido sin equivocarse. Todo lo que se construyó después, de los ZIP a los códigos del 5G, trabaja contra esos dos límites. Este curso los demuestra y construye, capítulo a capítulo, un compresor que se acerca a uno y un código que se acerca al otro.</p>
+</header>
+
+<section>
+  <h2>Cómo usar este curso</h2>
+  <div class="prose">
+    <p><b>Estado.</b> El curso está en preparación. La <a href="temario.html">tabla de contenido</a> ya tiene los 12 capítulos con sus secciones y sus laboratorios, y está en revisión.</p>
+    <p><b>Para quién es.</b> Para estudiantes de computación y de ingeniería, y para quien trabaja con datos o aprendizaje automático. Conviene saber probabilidad discreta (valor esperado, probabilidad condicional; están en Probabilidad y estadística) y logaritmos. Los códigos correctores usan algo de álgebra lineal sobre bits.</p>
+    <p><b>Cómo está hecho.</b> Un compresor recorre el curso. Nace contando la frecuencia de las letras de un texto, se vuelve un código de Huffman, después aritmético, aprende a usar el contexto y termina prediciendo con un modelo. Luego el archivo comprimido tiene que cruzar un canal con ruido y se le agrega un código corrector. Los laboratorios trabajan con tus propios textos e imágenes: cambias una probabilidad, el tamaño de un bloque o el nivel de ruido y ves la entropía, la longitud del código y los errores moverse.</p>
+  </div>
+</section>
+
+<details class="stage" id="temario" open><summary><h2><span class="pn">Empieza aquí</span> Tabla de contenido</h2></summary>
+  <div class="mods">
+    <a class="mod" href="temario.html"><span class="n">≡</span><b>Tabla de contenido</b><p>Cada capítulo con sus secciones y sus laboratorios.</p></a>
+  </div>
+</details>
+
+<details class="stage" id="parte-1" open><summary><h2><span class="pn">Parte 1</span> Medir la información</h2><span class="cuenta" data-etapa-cuenta="1"></span></summary>
+  <div class="mods">
+    <div class="mod soon" data-id="que-es-la-informacion"><span class="n">01</span><b>Qué es la información: la medida de Shannon</b><p>La sorpresa de un evento, el bit como unidad y por qué el significado no entra en la cuenta.</p></div>
+    <div class="mod soon" data-id="entropia"><span class="n">02</span><b>Entropía: la sorpresa promedio</b><p>La entropía de una fuente, sus propiedades, la entropía conjunta y condicional, y la tasa de entropía de un idioma.</p></div>
+    <div class="mod soon" data-id="informacion-mutua-y-divergencia"><span class="n">03</span><b>Información mutua, divergencia KL y entropía cruzada</b><p>Cuánto dice una variable de otra, cuánto cuesta usar la distribución equivocada y la desigualdad del procesamiento de datos.</p></div>
+  </div>
+</details>
+
+<details class="stage" id="parte-2" open><summary><h2><span class="pn">Parte 2</span> Comprimir sin perder</h2><span class="cuenta" data-etapa-cuenta="2"></span></summary>
+  <div class="mods">
+    <div class="mod soon" data-id="codigos-de-fuente"><span class="n">04</span><b>Códigos de fuente y el primer teorema de Shannon</b><p>Códigos prefijo, la desigualdad de Kraft-McMillan y por qué nadie comprime por debajo de la entropía.</p></div>
+    <div class="mod soon" data-id="huffman"><span class="n">05</span><b>El código de Huffman</b><p>El algoritmo de Huffman, su demostración de optimalidad y el compresor que gana su primera versión real.</p></div>
+    <div class="mod soon" data-id="codificacion-aritmetica"><span class="n">06</span><b>Codificación aritmética y ANS</b><p>Un mensaje entero como un número en un intervalo, la separación entre modelo y codificador, y los sistemas numéricos asimétricos.</p></div>
+    <div class="mod soon" data-id="diccionarios-y-contexto"><span class="n">07</span><b>Compresión por diccionario y por contexto: LZ, DEFLATE y PPM</b><p>Lempel-Ziv, DEFLATE, la transformada de Burrows-Wheeler y el modelado de contexto, con lo que usan ZIP, PNG y zstd.</p></div>
+  </div>
+</details>
+
+<details class="stage" id="parte-3" open><summary><h2><span class="pn">Parte 3</span> Predecir y perder</h2><span class="cuenta" data-etapa-cuenta="3"></span></summary>
+  <div class="mods">
+    <div class="mod soon" data-id="compresion-con-perdida"><span class="n">08</span><b>Compresión con pérdida: tasa-distorsión, cuantización y transformadas</b><p>La función tasa-distorsión, la cuantización escalar y vectorial, y la codificación por transformada de JPEG y del audio.</p></div>
+    <div class="mod soon" data-id="comprimir-es-predecir"><span class="n">09</span><b>Comprimir es predecir: información y aprendizaje automático</b><p>Por qué un buen modelo de probabilidad es un buen compresor, y las ideas de la información que usa el aprendizaje automático.</p></div>
+  </div>
+</details>
+
+<details class="stage" id="parte-4" open><summary><h2><span class="pn">Parte 4</span> Comunicar con ruido</h2><span class="cuenta" data-etapa-cuenta="4"></span></summary>
+  <div class="mods">
+    <div class="mod soon" data-id="capacidad-de-canal"><span class="n">10</span><b>Capacidad de canal y el teorema de Shannon</b><p>Canales discretos sin memoria, la capacidad como máximo de la información mutua y el teorema de codificación de canal.</p></div>
+    <div class="mod soon" data-id="codigos-algebraicos"><span class="n">11</span><b>Códigos correctores: Hamming, códigos lineales y Reed-Solomon</b><p>Distancia mínima, códigos lineales con matrices generadora y de control, Hamming, CRC y Reed-Solomon en los QR.</p></div>
+    <div class="mod soon" data-id="codigos-modernos"><span class="n">12</span><b>Códigos modernos: LDPC, turbo y polares, a un paso de la capacidad</b><p>Decodificación iterativa en grafos, los códigos que redescubrieron a Gallager y los polares que alcanzan la capacidad.</p></div>
+  </div>
+</details>
+
+
+
+<nav class="pager" id="pager" aria-label="Capítulo anterior y siguiente"></nav>
+</main>
+</div>
+<footer><span>Curso abierto de aaramirez.github.io.</span><span>Sitio publicado: <a href="https://github.com/aaramirez/teoria-de-la-informacion" target="_blank" rel="noopener">github.com/aaramirez/teoria-de-la-informacion</a></span></footer>
+</div>
+<script src="assets/lab.js"></script>
+</body>
+</html>
